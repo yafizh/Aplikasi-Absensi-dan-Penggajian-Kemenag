@@ -48,11 +48,7 @@ if (isset($_SESSION['user'])) {
             default:
                 include_once "beranda.php";
         }
-    } else {
-        if ($_SESSION['status'] == 'PEGAWAI')
-            include_once "beranda_pegawai.php";
-        else
-            include_once "beranda.php";
-    }
+    } else
+        include_once "beranda.php";
 } else header('Location: halaman_auth/login.php');
 include_once "templates/footer.php";

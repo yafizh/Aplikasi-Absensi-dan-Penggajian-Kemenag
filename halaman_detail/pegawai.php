@@ -1,13 +1,26 @@
 <?php
 
 if (isset($_GET['id'])) {
-    $result = $mysqli->query("SELECT pegawai.*, user.username, user.password, user.status FROM pegawai INNER JOIN user ON pegawai.id_user=user.id WHERE pegawai.id=" . $_GET['id']);
+    $q = "
+        SELECT 
+            p.*,
+            j.nama jabatan,
+            j.golongan,
+            j.gaji_pokok
+        FROM 
+            pegawai p
+        INNER JOIN 
+            jabatan j 
+        ON 
+            p.id_jabatan=j.id 
+        WHERE 
+            p.id=" . $_GET['id'];
+    $result = $mysqli->query($q);
     $data = $result->fetch_assoc();
-    $id_user = $data['id_user'];
     $gambar = $data['gambar'];
 } else {
     echo "<script>alert('id tidak ditemukan');</script>";
-    echo "<script>window.location.href = '?page=pegawai';</script>";
+    echo "<script>window.location.href = '?page=" . $_GET['page'] . "';</script>";
 }
 ?>
 <section class="content-header">
@@ -28,7 +41,47 @@ if (isset($_GET['id'])) {
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Preview Gambar</h3>
+                    </div>
+                    <div class="card-body d-flex justify-content-center" style="height: 400px; padding: 20px;">
+                        <img id="preview" src="<?= $gambar; ?>" class="w-100" style="object-fit: cover;">
+                    </div>
+                </div>
+
+                <style>
+                    .fade-scale {
+                        transform: scale(0);
+                        opacity: 0;
+                        -webkit-transition: all .25s linear;
+                        -o-transition: all .25s linear;
+                        transition: all .25s linear;
+                    }
+
+                    .fade-scale.in {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    #qrcode canvas {
+                        height: 100% !important;
+                    }
+                </style>
+                <div class="card card-primary">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="card-title flex-grow-1">QR CODE</h3>
+                        <button id="cetak" class="btn btn-sm btn-dark m-0">Cetak</a>
+                    </div>
+                    <div class="card-body">
+                        <div style="aspect-ratio: 1 / 1;">
+                            <div id="qrcode" style="height: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">Identitas Pegawai</h3>
@@ -48,7 +101,11 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="form-group">
                             <label for="tanggal_lahir">Tanggal Lahir</label>
-                            <input type="date" class="form-control" value="<?= $data['tanggal_lahir']; ?>" disabled>
+                            <input type="text" class="form-control" value="<?= indonesiaDate($data['tanggal_lahir']); ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempat_lahir">Tempat Lahir</label>
+                            <input type="text" class="form-control" value="<?= $data['tempat_lahir']; ?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -60,58 +117,20 @@ if (isset($_GET['id'])) {
 
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="pangkat">Pangkat</label>
-                            <input type="text" class="form-control" value="<?= $data['pangkat']; ?>" disabled>
+                            <label for="jabatan">Jabatan</label>
+                            <input type="text" class="form-control" value="<?= $data['jabatan']; ?>" disabled>
                         </div>
                         <div class="form-group">
                             <label for="golongan">Golongan</label>
                             <input type="text" class="form-control" value="<?= $data['golongan']; ?>" disabled>
                         </div>
                         <div class="form-group">
+                            <label for="gaji_pokok">Gaji Pokok</label>
+                            <input type="text" class="form-control" value="<?= number_format($data['gaji_pokok'], 0, ",", "."); ?>" disabled>
+                        </div>
+                        <div class="form-group">
                             <label for="tmt">TMT</label>
-                            <input type="date" class="form-control" value="<?= $data['tmt']; ?>" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="jabatan">Jabatan</label>
-                            <input type="text" class="form-control" value="<?= $data['jabatan']; ?>" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="unit_kerja">Unit Kerja</label>
-                            <input type="text" class="form-control" value="<?= $data['unit_kerja']; ?>" disabled>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Preview Gambar</h3>
-                    </div>
-                    <div class="card-body d-flex justify-content-center" style="height: 470.5px; padding: 20px;">
-                        <img id="preview" src="<?= $gambar; ?>" class="w-50" style="object-fit: cover;">
-                    </div>
-                </div>
-
-                <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Akun Pegawai</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" value="<?= $data['username']; ?>" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" value="<?= $data['password']; ?>" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="status">Status</label>
-                            <select name="status" id="status" required class="form-control" disabled>
-                                <option <?= $data['status'] === "ADMIN" ? "selected" : ""; ?> value="ADMIN">Admin</option>
-                                <option <?= $data['status'] === "PIMPINAN" ? "selected" : ""; ?> value="PIMPINAN">Pimpinan</option>
-                                <option <?= $data['status'] === "PEGAWAI" ? "selected" : ""; ?> value="PEGAWAI" selected>Pegawai</option>
-                            </select>
+                            <input type="text" class="form-control" value="<?= indonesiaDate($data['tmt']); ?>" disabled>
                         </div>
                     </div>
                 </div>
@@ -119,3 +138,24 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </section>
+<script>
+    const qrCode = new QRCodeStyling({
+        width: 1000,
+        height: 1000,
+        data: JSON.stringify(<?= json_encode($data); ?>),
+        // image: "assets/img/favicon.png", 
+        backgroundOptions: {
+            color: "#ffffff",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            margin: 30
+        },
+        margin: 0
+    });
+
+    qrCode.append(document.getElementById("qrcode"));
+    document.getElementById('cetak').addEventListener('click', () => {
+        qrCode.download({});
+    });
+</script>
