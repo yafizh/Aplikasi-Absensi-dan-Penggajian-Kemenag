@@ -38,6 +38,22 @@ INSERT INTO `db_kemenag`.`jabatan` (
 (2, 'Petugas Keamanan', 'III/a', 3000000),
 (3, 'Petugas Kebersihan', 'III/a', 2000000);
 
+CREATE TABLE `db_kemenag`.`tunjangan` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `nama` VARCHAR(255) UNIQUE,
+    `tunjangan` BIGINT UNSIGNED,
+    `jenis_pemberian` VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+INSERT INTO `db_kemenag`.`tunjangan` (
+    `id`, 
+    `nama`, 
+    `tunjangan`, 
+    `jenis_pemberian`
+) VALUES
+(1, 'Uang Makan', 100000, 'Harian');
+
 
 CREATE TABLE `db_kemenag`.`pegawai` (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

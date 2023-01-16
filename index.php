@@ -21,6 +21,17 @@ if (isset($_SESSION['user'])) {
                 } else
                     include_once "halaman_tampil_data/jabatan.php";
                 break;
+            case "tunjangan":
+                if (isset($_GET['method'])) {
+                    if ($_GET['method'] === 'tambah')
+                        include_once "halaman_tambah_data/tunjangan.php";
+                    elseif ($_GET['method'] === 'edit')
+                        include_once "halaman_edit_data/tunjangan.php";
+                    elseif ($_GET['method'] === 'hapus')
+                        include_once "halaman_hapus_data/tunjangan.php";
+                } else
+                    include_once "halaman_tampil_data/tunjangan.php";
+                break;
             case "pegawai":
                 if (isset($_GET['method'])) {
                     if ($_GET['method'] === 'tambah')

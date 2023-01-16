@@ -27,7 +27,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="?page=pegawai" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "pegawai") ? "active" : "")  : "" ?>">
+                    <a href="?page=tunjangan" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "tunjangan") ? "active" : "")  : "" ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Tunjangan
