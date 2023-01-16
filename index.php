@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set("Asia/Kuala_Lumpur");
 include_once "templates/header.php";
-// include_once "utils/utils.php";
+include_once "utils/utils.php";
 include_once "database/koneksi.php";
 if (isset($_SESSION['user'])) {
     include_once "templates/navbar.php";

@@ -47,6 +47,7 @@
   </style>
   
   <script src="assets/js/iframe-download.js"></script>
+  <script src="utils/utils.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

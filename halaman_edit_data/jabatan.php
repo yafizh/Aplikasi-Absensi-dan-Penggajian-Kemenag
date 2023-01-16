@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
     echo "<script>window.location.href = '?page=" . $_GET['page'] . "';</script>";
 }
 
-
 if (isset($_POST['submit'])) {
     $nama = $mysqli->real_escape_string($_POST['nama']);
     $golongan = $mysqli->real_escape_string($_POST['golongan']);

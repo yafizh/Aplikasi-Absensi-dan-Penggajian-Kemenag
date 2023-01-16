@@ -67,8 +67,8 @@ CREATE TABLE `db_kemenag`.`pegawai` (
     tempat_lahir VARCHAR(255) NOT NULL,
     gambar VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (id_jabatan) REFERENCES jabatan (id),
-    FOREIGN KEY (id_user) REFERENCES user (id)
+    FOREIGN KEY (id_jabatan) REFERENCES jabatan (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_user) REFERENCES user (id) ON DELETE CASCADE
 );
 
 INSERT INTO `db_kemenag`.`pegawai` (
