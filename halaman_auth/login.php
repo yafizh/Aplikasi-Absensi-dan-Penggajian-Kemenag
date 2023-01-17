@@ -48,9 +48,9 @@ if (isset($_POST['submit'])) {
 	<div class="login-box">
 		<div class="card">
 			<div class="card-body login-card-body">
-				<div class="d-flex justify-content-center mb-3">
-					<img src="../assets/img/logo.png" width="110" height="110">
-					<p class="login-box-msg" style="font-weight: bold;">Badan Kepegawaian Daerah dan Pengembangan Sumber Daya Manusia Kabupaten Banjar</p>
+				<div class="d-flex flex-column align-items-center justify-content-center mb-3">
+					<img src="../assets/img/logo.png" class="mb-3" width="150" height="150">
+					<p class="login-box-msg" style="font-weight: bold;">APLIKASI ABSENSI DAN PENGGAJIAN PEGAWAI KEMENTERIAN AGAMA KABUPATEN TAPIN</p>
 				</div>
 				<form action="" method="POST">
 					<div class="input-group mb-3">

@@ -44,6 +44,16 @@
       width: 1%;
       white-space: nowrap;
     }
+
+    .btn-primary {
+      background-color: #00640E !important;
+      border: #00640E 1px solid;
+    }
+
+    .btn-primary:hover {
+      background-color: #00500b !important;
+      border: #00500b 1px solid;
+    }
   </style>
 
   <script src="assets/js/iframe-download.js"></script>
