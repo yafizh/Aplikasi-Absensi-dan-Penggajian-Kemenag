@@ -1,12 +1,24 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <div class="sidebar">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="info">
-                <a href="#" class="d-block"><?= $_SESSION['user']['username']; ?></a>
-                <a href="#" class="d-block"><?= $_SESSION['user']['status']; ?></a>
-            </div>
-        </div>
+<style>
+    .nav-link {
+        color: white !important;
+    }
 
+    .nav-link:hover {
+        background-color: #fff !important;
+        color: #00640E !important;
+    }
+
+    .nav-link.active {
+        background-color: #fff !important;
+        color: #00640E !important;
+    }
+</style>
+<aside class="main-sidebar elevation-4 text-white" style="background-color: #00640E;">
+    <div class="sidebar">
+        <div class="p-3 d-flex flex-column align-items-center">
+            <img src="assets/img/logo.png" width="120" class="mb-3">
+            <h5 class="text-center">APLIKASI ABSENSI DAN PENGGAJIAN PEGAWAI KEMENTERIAN AGAMA KABUPATEN TAPIN</h5>
+        </div>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
@@ -34,12 +46,36 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-header">DATA PEGAWAI</li>
                 <li class="nav-item">
                     <a href="?page=pegawai" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "pegawai") ? "active" : "")  : "" ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Pegawai
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">PRESENSI PEGAWAI</li>
+                <li class="nav-item">
+                    <a href="?page=scanner" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "scanner") ? "active" : "")  : "" ?>">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Scanner
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="?page=riwayat_presensi" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "riwayat_presensi") ? "active" : "")  : "" ?>">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Riwayat Presensi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="?page=tabel_presensi" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "tabel_presensi") ? "active" : "")  : "" ?>">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Tabel Presensi
                         </p>
                     </a>
                 </li>
