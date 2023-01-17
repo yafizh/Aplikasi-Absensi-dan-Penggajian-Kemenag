@@ -17,6 +17,15 @@
       "autoWidth": false,
       "responsive": true,
     });
+    $('#example3').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": false,
+      "info": false,
+      "autoWidth": false,
+      "responsive": false,
+    });
   });
 </script>
 </body>

@@ -79,6 +79,42 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-header">LAPORAN</li>
+                <li class="nav-item <?= isset($_GET['page']) ? (($_GET['page'] == 'laporan') ? "menu-open" : "")  : "" ?>">
+                    <a href="#" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] == 'laporan') ? "active" : "")  : "" ?>">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Laporan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="?page=laporan&method=pegawai" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "pegawai") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?page=struktural" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "struktural") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Riwayat Presensi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?page=fungsional" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "fungsional") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Presensi Bulanan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?page=fungsional" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "fungsional") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Gaji Pegawai</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </div>

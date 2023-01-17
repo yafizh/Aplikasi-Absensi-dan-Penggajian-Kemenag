@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
         $mysqli->begin_transaction();
 
         $target_dir = "uploads/";
-        $gambar = $target_dir . Date("YmdHis") . strtolower(pathinfo(basename($_FILES["gambar"]["name"]), PATHINFO_EXTENSION));
+        $gambar = $target_dir . Date("YmdHis") . '.' . strtolower(pathinfo(basename($_FILES["gambar"]["name"]), PATHINFO_EXTENSION));
         if (!is_dir($target_dir)) mkdir($target_dir, 0700, true);
         move_uploaded_file($_FILES["gambar"]["tmp_name"], $gambar);
 
