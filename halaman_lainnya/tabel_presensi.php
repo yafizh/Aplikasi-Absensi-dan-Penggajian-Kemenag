@@ -45,7 +45,7 @@ foreach ($pegawai as $index => $value_pegawai) {
                 } elseif ($value_presensi_pegawai['status'] == 'Izin') {
                     $pegawai[$index]['presensi'][] = 'I';
                 } elseif ($value_presensi_pegawai['status'] == 'Sakit') {
-                    $pegawai[$index]['presensi'][] = 'Z';
+                    $pegawai[$index]['presensi'][] = 'S';
                 }
                 $ada = !$ada;
                 break;

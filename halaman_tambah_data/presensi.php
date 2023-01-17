@@ -7,7 +7,13 @@ try {
     $data = json_decode(file_get_contents('php://input'), true);
     $id_pegawai = $mysqli->real_escape_string($data['id_pegawai']);
 
-    $check = $mysqli->query("SELECT * FROM presensi_pegawai WHERE id_pegawai=$id_pegawai AND DATE(tanggal_waktu)='" . Date("Y-m-d") . "'");
+    if (Date('H') <= 12) {
+        $jenis = 'Masuk';
+        $check = $mysqli->query("SELECT * FROM presensi_pegawai WHERE id_pegawai=$id_pegawai AND DATE(tanggal_waktu)='" . Date("Y-m-d") . "' AND jenis='$jenis'");
+    } else {
+        $jenis = 'Pulang';
+        $check = $mysqli->query("SELECT * FROM presensi_pegawai WHERE id_pegawai=$id_pegawai AND DATE(tanggal_waktu)='" . Date("Y-m-d") . "' AND jenis='$jenis'");
+    }
     if (!$check->num_rows) {
         $q = "
         INSERT INTO presensi_pegawai ( 
@@ -19,7 +25,7 @@ try {
             '$id_pegawai',
             '" . Date("Y-m-d H:i:s") . "',
             'Hadir',
-            '" . (Date("H") <= 12 ? 'Masuk' : 'Pulang') . "' 
+            '$jenis' 
         )
         ";
         $mysqli->query($q);

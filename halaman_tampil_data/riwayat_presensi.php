@@ -28,6 +28,7 @@
                         <th class="text-center">Waktu</th>
                         <th class="text-center">NIP</th>
                         <th class="text-center">Nama</th>
+                        <th class="text-center">Jenis Presensi</th>
                         <th class="text-center">Status</th>
                         <th class="text-center td-fit">Aksi</th>
                     </tr>
@@ -41,7 +42,8 @@
                             DATE_FORMAT(pp.tanggal_waktu, '%H:%i') waktu,
                             p.nip,
                             p.nama,
-                            pp.status 
+                            pp.status,
+                            pp.jenis  
                         FROM 
                             presensi_pegawai pp
                         INNER JOIN 
@@ -49,7 +51,7 @@
                         ON 
                             p.id=pp.id_pegawai 
                         ORDER BY 
-                            pp.tanggal_waktu DESC";
+                            pp.id DESC";
                     $no = 1;
                     if ($result = $mysqli->query($q)) {
                     } else echo "Error: " . $q . "<br>" . $mysqli->error;
@@ -61,6 +63,7 @@
                             <td class="text-center td-fit" style="vertical-align: middle;"><?= $row['status'] == 'Hadir' ? $row['waktu'] : '-'; ?></td>
                             <td class="text-center td-fit" style="vertical-align: middle;"><?= $row['nip'] ?></td>
                             <td style="vertical-align: middle;"><?= $row['nama'] ?></td>
+                            <td class="text-center" style="vertical-align: middle;"><?= $row['status'] == 'Hadir' ? $row['jenis'] : '-'; ?></td>
                             <td class="text-center" style="vertical-align: middle;"><?= $row['status']; ?></td>
                             <td class="text-center td-fit">
                                 <a href="?page=riwayat_presensi&method=edit&id=<?= $row['id'] ?>" class="btn btn-sm btn-warning text-white">Edit</a>
