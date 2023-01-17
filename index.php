@@ -45,6 +45,9 @@ if (isset($_SESSION['user'])) {
                 } else
                     include_once "halaman_tampil_data/pegawai.php";
                 break;
+            case "tabel_presensi":
+                include_once "halaman_lainnya/tabel_presensi.php";
+                break;
             case "scanner":
                 include_once "halaman_lainnya/scanner.php";
                 break;
