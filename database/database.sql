@@ -96,3 +96,12 @@ INSERT INTO `db_kemenag`.`pegawai` (
 (1, 1, 2, '198604072011012007', 'Erma Yunita S.Pd', '085753445678', '2014-10-01', '1986-04-07', 'Binuang', ''),
 (2, 2, 3, '199410302018081001', 'Muhammad Pauji, S.STP', '087756908544', '2020-10-01', '1994-10-30', 'Martapura', ''),
 (3, 3, 4, '196104151986081003', 'Sarbani S.E., M.A.P', '082134567800', '2015-02-10', '1961-04-15', 'Banjarbaru', '');
+
+CREATE TABLE `db_kemenag`.`tunjangan_pegawai` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id_pegawai` BIGINT UNSIGNED NOT NULL,
+    `id_tunjangan` BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`id_tunjangan`) REFERENCES `tunjangan` (`id`) ON DELETE CASCADE
+);

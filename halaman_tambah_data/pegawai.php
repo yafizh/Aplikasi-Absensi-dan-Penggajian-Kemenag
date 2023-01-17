@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
     $id_jabatan = $mysqli->real_escape_string($_POST['id_jabatan']);
     $tmt = $mysqli->real_escape_string($_POST['tmt']);
     $password = $mysqli->real_escape_string($_POST['password']);
+    $id_tunjangan = $_POST['id_tunjangan'] ?? [];
 
     try {
         $mysqli->begin_transaction();
@@ -55,6 +56,21 @@ if (isset($_POST['submit'])) {
             )
         ";
         $mysqli->query($q);
+
+        $id_pegawai = $mysqli->insert_id;
+
+        foreach ($id_tunjangan as $id) {
+            $q = "
+                INSERT INTO tunjangan_pegawai (
+                    id_pegawai,
+                    id_tunjangan 
+                ) VALUES (
+                    $id_pegawai,
+                    $id
+                )
+            ";
+            $mysqli->query($q);
+        }
 
 
         $mysqli->commit();
@@ -152,6 +168,22 @@ if (isset($_POST['submit'])) {
                             <div class="form-group">
                                 <label for="tmt">TMT</label>
                                 <input type="date" class="form-control" name="tmt" id="tmt" value="<?= Date("Y-m-d"); ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>Tunjangan yang diterima</label>
+                                <?php $result = $mysqli->query("SELECT * FROM tunjangan"); ?>
+                                <div class="d-flex">
+                                    <?php if ($result->num_rows) : ?>
+                                        <?php while ($row = $result->fetch_assoc()) : ?>
+                                            <div class="form-check mr-3">
+                                                <input class="form-check-input" type="checkbox" id="tunjangan-<?= $row['id']; ?>" value="<?= $row['id']; ?>" name="id_tunjangan[]">
+                                                <label class="form-check-label" for="tunjangan-<?= $row['id']; ?>"><?= $row['nama']; ?></label>
+                                            </div>
+                                        <?php endwhile; ?>
+                                    <?php else : ?>
+                                        Data Tunjangan Belum Ditambahkan!
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     </div>

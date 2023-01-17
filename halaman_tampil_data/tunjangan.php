@@ -24,8 +24,8 @@
                 <thead>
                     <tr>
                         <th class="text-center td-fit">No</th>
-                        <th class="text-center">Nama</th>
-                        <th class="text-center td-fit">Tunjangan</th>
+                        <th class="text-center">Nama Tunjangan</th>
+                        <th class="text-center td-fit">Nominal Tunjangan</th>
                         <th class="text-center">Jenis Pemberian</th>
                         <th class="text-center td-fit">Aksi</th>
                     </tr>

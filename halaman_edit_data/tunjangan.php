@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
                                 <input type="text" class="form-control" name="nama" id="nama" required value="<?= $data['nama']; ?>" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="tunjangan">Tunjangan</label>
+                                <label for="tunjangan">Nominal Tunjangan</label>
                                 <input type="text" class="form-control" name="tunjangan" id="tunjangan" value="<?= $data['tunjangan']; ?>" autocomplete="off" required>
                             </div>
                             <div class="form-group">
