@@ -75,8 +75,8 @@ CREATE TABLE `db_kemenag`.`presensi_pegawai` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     `id_pegawai` BIGINT UNSIGNED NOT NULL,
     `tanggal_waktu` DATETIME,
-    `status` TINYINT UNSIGNED,
-    `jenis` TINYINT UNSIGNED,
+    `status` VARCHAR(255),
+    `jenis` VARCHAR(255),
     PRIMARY KEY (`id`),
     FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE
 );

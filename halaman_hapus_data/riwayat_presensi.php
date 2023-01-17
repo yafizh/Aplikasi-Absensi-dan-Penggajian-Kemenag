@@ -1,8 +1,8 @@
 <?php
 
 if (isset($_GET['id'])) {
-    if ($mysqli->query("DELETE FROM tunjangan WHERE id=" . $_GET['id'])) {
-        echo "<script>alert('Tunjangan berhasil dihapus.')</script>";
+    if ($mysqli->query("DELETE FROM presensi_pegawai WHERE id=" . $_GET['id'])) {
+        echo "<script>alert('Presensi berhasil dihapus.')</script>";
         echo "<script>" .
             "window.location.href='?page=" . $_GET['page'] . "';" .
             "</script>";

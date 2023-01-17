@@ -18,8 +18,8 @@ try {
         ) VALUES (
             '$id_pegawai',
             '" . Date("Y-m-d H:i:s") . "',
-            '1',
-            '" . (Date("H") <= 12 ? 1 : 2) . "' 
+            'Hadir',
+            '" . (Date("H") <= 12 ? 'Masuk' : 'Pulang') . "' 
         )
         ";
         $mysqli->query($q);
