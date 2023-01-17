@@ -18,12 +18,12 @@
         <?php if (isset($_POST['dari_tmt'])) : ?>
             <br>
             <span style="width: 150px; display: inline-block;">Dari TMT</span>
-            <span>: <?= indonesiaDate($_GET['dari_tanggal']); ?></span>
+            <span>: <?= indonesiaDate($_POST['dari_tmt']); ?></span>
         <?php endif; ?>
         <?php if (isset($_POST['dari_tmt'])) : ?>
             <br>
             <span style="width: 150px; display: inline-block;">Sampai TMT</span>
-            <span>: <?= indonesiaDate($_GET['sampai_tanggal']); ?></span>
+            <span>: <?= indonesiaDate($_POST['sampai_tmt']); ?></span>
         <?php endif; ?>
     </section>
     <main class="p-3">

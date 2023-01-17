@@ -96,7 +96,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="?page=struktural" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "struktural") ? "active" : "")  : "" ?>">
+                            <a href="?page=laporan&method=riwayat_presensi" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "riwayat_presensi") ? "active" : "")  : "" ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Riwayat Presensi</p>
                             </a>

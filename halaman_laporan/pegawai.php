@@ -16,10 +16,10 @@
                     <h3 class="card-title flex-grow-1">Filter</h3>
                     <form action="halaman_cetak_laporan/pegawai.php" method="POST" target="_blank">
                         <?php if (isset($_POST['dari_tmt'])) : ?>
-                            <input type="text" hidden value="<?= $_POST['dari_tmt'] ?>">
+                            <input type="text" hidden name="dari_tmt" value="<?= $_POST['dari_tmt'] ?>">
                         <?php endif; ?>
                         <?php if (isset($_POST['sampai_tmt'])) : ?>
-                            <input type="text" hidden value="<?= $_POST['dari_tmt'] ?>">
+                            <input type="text" hidden name="sampai_tmt" value="<?= $_POST['dari_tmt'] ?>">
                         <?php endif; ?>
                         <button class="btn btn-success">Cetak</button>
                     </form>

@@ -68,6 +68,8 @@ if (isset($_SESSION['user'])) {
                 if (isset($_GET['method'])) {
                     if ($_GET['method'] === 'pegawai')
                         include_once "halaman_laporan/pegawai.php";
+                    elseif ($_GET['method'] === 'riwayat_presensi')
+                        include_once "halaman_laporan/riwayat_presensi.php";
                 }
                 break;
             default:
