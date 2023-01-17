@@ -27,7 +27,7 @@
         <?php endif; ?>
     </section>
     <main class="p-3">
-        <table class="table table-striped table-bordered">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th class="text-center align-middle no-td">No</th>

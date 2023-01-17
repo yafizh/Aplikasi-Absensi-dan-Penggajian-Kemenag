@@ -19,7 +19,7 @@
                             <input type="text" hidden name="dari_tmt" value="<?= $_POST['dari_tmt'] ?>">
                         <?php endif; ?>
                         <?php if (isset($_POST['sampai_tmt'])) : ?>
-                            <input type="text" hidden name="sampai_tmt" value="<?= $_POST['dari_tmt'] ?>">
+                            <input type="text" hidden name="sampai_tmt" value="<?= $_POST['sampai_tmt'] ?>">
                         <?php endif; ?>
                         <button class="btn btn-success">Cetak</button>
                     </form>

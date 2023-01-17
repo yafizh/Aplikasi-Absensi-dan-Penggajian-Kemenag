@@ -102,7 +102,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="?page=fungsional" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "fungsional") ? "active" : "")  : "" ?>">
+                            <a href="?page=laporan&method=presensi_bulanan" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "presensi_bulanan") ? "active" : "")  : "" ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Presensi Bulanan</p>
                             </a>

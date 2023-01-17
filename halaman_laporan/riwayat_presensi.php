@@ -19,7 +19,7 @@
                             <input type="text" hidden name="dari_tanggal" value="<?= $_POST['dari_tanggal'] ?>">
                         <?php endif; ?>
                         <?php if (isset($_POST['sampai_tanggal'])) : ?>
-                            <input type="text" hidden name="sampai_tanggal" value="<?= $_POST['dari_tanggal'] ?>">
+                            <input type="text" hidden name="sampai_tanggal" value="<?= $_POST['sampai_tanggal'] ?>">
                         <?php endif; ?>
                         <?php if (isset($_POST['status'])) : ?>
                             <input type="text" hidden name="status" value="<?= $_POST['status'] ?>">

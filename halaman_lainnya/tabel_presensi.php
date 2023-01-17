@@ -36,23 +36,28 @@ $q = "
         YEAR(tanggal_waktu)='" . Date("Y") . "' ORDER BY id_pegawai";
 $presensi_pegawai = $mysqli->query($q)->fetch_all(MYSQLI_ASSOC);
 foreach ($pegawai as $index => $value_pegawai) {
-    for ($i = 1; $i < Date('t'); $i++) {
-        $ada = false;
-        foreach ($presensi_pegawai as $value_presensi_pegawai) {
-            if ($value_pegawai['id'] == $value_presensi_pegawai['id_pegawai'] && $value_presensi_pegawai['tanggal'] == $i) {
-                if ($value_presensi_pegawai['status'] == 'Hadir') {
-                    $pegawai[$index]['presensi'][] = 'H';
-                } elseif ($value_presensi_pegawai['status'] == 'Izin') {
-                    $pegawai[$index]['presensi'][] = 'I';
-                } elseif ($value_presensi_pegawai['status'] == 'Sakit') {
-                    $pegawai[$index]['presensi'][] = 'S';
+
+    for ($i = 1; $i <= Date('t'); $i++) {
+        if ((Date('Y-m-') . ($i < 10 ? ('0' . $i) : $i)) <= Date('Y-m-d')) {
+            $ada = false;
+            foreach ($presensi_pegawai as $value_presensi_pegawai) {
+                if ($value_pegawai['id'] == $value_presensi_pegawai['id_pegawai'] && $value_presensi_pegawai['tanggal'] == $i) {
+                    if ($value_presensi_pegawai['status'] == 'Hadir') {
+                        $pegawai[$index]['presensi'][] = 'H';
+                    } elseif ($value_presensi_pegawai['status'] == 'Izin') {
+                        $pegawai[$index]['presensi'][] = 'I';
+                    } elseif ($value_presensi_pegawai['status'] == 'Sakit') {
+                        $pegawai[$index]['presensi'][] = 'S';
+                    }
+                    $ada = !$ada;
+                    break;
                 }
-                $ada = !$ada;
-                break;
             }
-        }
-        if (!$ada) {
-            $pegawai[$index]['presensi'][] = '-';
+            if (!$ada) {
+                $pegawai[$index]['presensi'][] = '-';
+            }
+        } else {
+            $pegawai[$index]['presensi'][] = '';
         }
     }
 }
@@ -69,7 +74,7 @@ foreach ($pegawai as $index => $value_pegawai) {
                         <th class="text-center align-middle" colspan="<?= Date('t'); ?>">Kehadiran</th>
                     </tr>
                     <tr>
-                        <?php for ($i = 1; $i < Date('t'); $i++) : ?>
+                        <?php for ($i = 1; $i <= Date('t'); $i++) : ?>
                             <th class="text-center"><?= $i; ?></th>
                         <?php endfor; ?>
                     </tr>
