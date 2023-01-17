@@ -32,7 +32,7 @@
                 <li class="nav-header">MASTER DATA</li>
                 <li class="nav-item">
                     <a href="?page=jabatan" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "jabatan") ? "active" : "")  : "" ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-user-tie"></i>
                         <p>
                             Jabatan
                         </p>
@@ -40,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="?page=tunjangan" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "tunjangan") ? "active" : "")  : "" ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-receipt"></i>
                         <p>
                             Tunjangan
                         </p>
@@ -57,7 +57,7 @@
                 <li class="nav-header">PRESENSI PEGAWAI</li>
                 <li class="nav-item">
                     <a href="?page=scanner" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "scanner") ? "active" : "")  : "" ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-qrcode"></i>
                         <p>
                             Scanner
                         </p>
@@ -65,7 +65,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="?page=riwayat_presensi" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "riwayat_presensi") ? "active" : "")  : "" ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-th-list"></i>
                         <p>
                             Riwayat Presensi
                         </p>
@@ -73,7 +73,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="?page=tabel_presensi" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "tabel_presensi") ? "active" : "")  : "" ?>">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-th"></i>
                         <p>
                             Tabel Presensi
                         </p>
