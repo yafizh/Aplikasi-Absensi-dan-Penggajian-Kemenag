@@ -108,9 +108,15 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="?page=fungsional" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "fungsional") ? "active" : "")  : "" ?>">
+                            <a href="?page=laporan&method=gaji_pegawai" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "gaji_pegawai") ? "active" : "")  : "" ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Gaji Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="?page=laporan&method=tunjangan_pegawai" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "tunjangan_pegawai") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tunjangan Pegawai</p>
                             </a>
                         </li>
                     </ul>

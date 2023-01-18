@@ -42,6 +42,17 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="../assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/adminlte.min.css">
+	<style>
+		.btn-primary {
+			background-color: #00640E !important;
+			border: #00640E 1px solid;
+		}
+
+		.btn-primary:hover {
+			background-color: #00500b !important;
+			border: #00500b 1px solid;
+		}
+	</style>
 </head>
 
 <body class="hold-transition login-page">
