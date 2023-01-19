@@ -40,7 +40,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="text-center align-middle no-td">No</th>
+                    <th class="text-center align-middle td-fit">No</th>
                     <th class="text-center align-middle">Tanggal</th>
                     <th class="text-center align-middle">Waktu</th>
                     <th class="text-center align-middle">NIP</th>

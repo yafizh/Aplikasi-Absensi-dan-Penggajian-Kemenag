@@ -11,3 +11,9 @@
 <div class="d-flex flex-column justify-content-center w-100">
     <div style="width: 100%; border-top: 3px solid black;"></div>
 </div>
+<style>
+    .td-fit {
+        width: 1%;
+        white-space: nowrap;
+    }
+</style>

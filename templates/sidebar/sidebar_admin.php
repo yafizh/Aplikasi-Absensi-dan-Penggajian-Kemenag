@@ -114,6 +114,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="?page=laporan&method=slip_gaji_pegawai" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "slip_gaji_pegawai") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Slip Gaji Pegawai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="?page=laporan&method=tunjangan_pegawai" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "tunjangan_pegawai") ? "active" : "")  : "" ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Tunjangan Pegawai</p>

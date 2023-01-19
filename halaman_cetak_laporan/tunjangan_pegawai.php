@@ -33,7 +33,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="text-center align-middle no-td">No</th>
+                    <th class="text-center align-middle td-fit">No</th>
                     <th class="text-center align-middle">NIP</th>
                     <th class="text-center align-middle">Nama</th>
                     <th class="text-center align-middle">Jabatan</th>

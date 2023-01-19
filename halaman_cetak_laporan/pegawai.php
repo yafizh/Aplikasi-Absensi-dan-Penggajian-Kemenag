@@ -20,7 +20,7 @@
             <span style="width: 150px; display: inline-block;">Dari TMT</span>
             <span>: <?= indonesiaDate($_POST['dari_tmt']); ?></span>
         <?php endif; ?>
-        <?php if (isset($_POST['dari_tmt'])) : ?>
+        <?php if (isset($_POST['sampai_tmt'])) : ?>
             <br>
             <span style="width: 150px; display: inline-block;">Sampai TMT</span>
             <span>: <?= indonesiaDate($_POST['sampai_tmt']); ?></span>
@@ -30,7 +30,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th class="text-center align-middle no-td">No</th>
+                    <th class="text-center align-middle td-fit">No</th>
                     <th class="text-center align-middle">NIP</th>
                     <th class="text-center align-middle">Nama</th>
                     <th class="text-center align-middle">Jabatan</th>
