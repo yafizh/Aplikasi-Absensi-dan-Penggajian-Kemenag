@@ -54,6 +54,24 @@
       background-color: #00500b !important;
       border: #00500b 1px solid;
     }
+
+    .page-item.active .page-link {
+      color: #fff !important;
+      background-color: #00640E !important;
+      border-color: #00640E !important;
+    }
+
+    .page-link {
+      color: #00640E !important;
+      background-color: #fff !important;
+      border: 1px solid #dee2e6 !important;
+    }
+
+    .page-link:hover {
+      color: #fff !important;
+      background-color: #00640E !important;
+      border-color: #00640E !important;
+    }
   </style>
 
   <script src="assets/js/iframe-download.js"></script>
