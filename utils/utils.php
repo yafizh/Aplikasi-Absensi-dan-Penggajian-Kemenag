@@ -40,3 +40,31 @@ function indonesiaDate($date)
     $tahun = explode('-', $date)[0];
     return $tanggal . ' ' . MONTH_IN_INDONESIA[$bulan - 1] . ' ' . $tahun;
 }
+
+// https://stackoverflow.com/questions/14185975/calculate-number-of-working-days-in-a-month
+// Note about ignore parameter: 0 is sunday, ..., 6 is saturday.
+function workingDays($year, $month, $ignore)
+{
+    $count = 0;
+    $counter = mktime(0, 0, 0, $month, 1, $year);
+    while (date("n", $counter) == $month) {
+        if (in_array(date("w", $counter), $ignore) == false) {
+            $count++;
+        }
+        $counter = strtotime("+1 day", $counter);
+    }
+    return $count;
+}
+
+function offDays($year, $month, $ignore)
+{
+    $count = 0;
+    $counter = mktime(0, 0, 0, $month, 1, $year);
+    while (date("n", $counter) == $month) {
+        if (in_array(date("w", $counter), $ignore)) {
+            $count++;
+        }
+        $counter = strtotime("+1 day", $counter);
+    }
+    return $count;
+}

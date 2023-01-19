@@ -104,5 +104,5 @@ if (isset($_SESSION['user'])) {
         } else
             include_once "beranda_pegawai.php";
     }
-} else header('Location: halaman_auth/login.php');
+} else     echo "<script>window.location.href = 'halaman_auth/login.php';</script>";
 include_once "templates/footer.php";
