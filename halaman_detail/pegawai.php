@@ -1,44 +1,48 @@
 <?php
 
-if (isset($_GET['id'])) {
-    $q = "
-        SELECT 
-            p.*,
-            j.nama jabatan,
-            j.golongan,
-            j.gaji_pokok
-        FROM 
-            pegawai p
-        INNER JOIN 
-            jabatan j 
-        ON 
-            p.id_jabatan=j.id 
-        WHERE 
-            p.id=" . $_GET['id'];
-    $result = $mysqli->query($q);
-    $data = $result->fetch_assoc();
-    $gambar = $data['gambar'];
-} else {
-    echo "<script>alert('id tidak ditemukan');</script>";
-    echo "<script>window.location.href = '?page=" . $_GET['page'] . "';</script>";
+$q = "
+    SELECT 
+        p.*, 
+        j.golongan, 
+        j.gaji_pokok, 
+        u.password,
+        j.nama jabatan
+    FROM 
+        pegawai p
+    INNER JOIN 
+        jabatan j  
+    ON 
+        p.id_jabatan=j.id 
+    INNER JOIN 
+        user u  
+    ON 
+        p.id_user=u.id 
+    WHERE 
+        p.id=" . ($_GET['id'] ?? $_SESSION['user']['id_pegawai']);
+$result = $mysqli->query($q);
+$data = $result->fetch_assoc();
+$gambar = $data['gambar'];
+
+$q = "
+    SELECT 
+        t.*  
+    FROM 
+        tunjangan_pegawai tp 
+    INNER JOIN 
+        tunjangan t 
+    ON 
+        t.id=tp.id_tunjangan 
+    WHERE 
+        tp.id_pegawai=" . ($_GET['id'] ?? $_SESSION['user']['id_pegawai']) . "
+    ";
+$tunjangan_pegawai = $mysqli->query($q);
+$data['tunjangan'] = [];
+while ($row = $tunjangan_pegawai->fetch_assoc()) {
+    $data['tunjangan'][] = $row['nama'];
 }
+$gambar = $data['gambar'];
 ?>
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Pegawai</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Pegawai</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="content">
+<section class="content mt-3">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -131,6 +135,14 @@ if (isset($_GET['id'])) {
                         <div class="form-group">
                             <label for="tmt">TMT</label>
                             <input type="text" class="form-control" value="<?= indonesiaDate($data['tmt']); ?>" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Tunjangan yang diterima</label>
+                            <ol style="padding-left: 1rem;">
+                                <?php foreach ($data['tunjangan'] as $tunjangan) : ?>
+                                    <li><?= $tunjangan; ?></li>
+                                <?php endforeach; ?>
+                            </ol>
                         </div>
                     </div>
                 </div>

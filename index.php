@@ -90,6 +90,12 @@ if (isset($_SESSION['user'])) {
         include_once "templates/sidebar/sidebar_pegawai.php";
         if (isset($_GET['page'])) {
             switch ($_GET['page']) {
+                case "ganti_password":
+                    include_once "halaman_lainnya/ganti_password.php";
+                    break;
+                case "data_diri":
+                    include_once "halaman_detail/pegawai.php";
+                    break;
                 default:
                     include_once "beranda_pegawai.php";
             }
