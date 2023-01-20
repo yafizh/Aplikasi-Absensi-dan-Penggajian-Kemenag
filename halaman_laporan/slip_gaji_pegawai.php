@@ -176,7 +176,7 @@
                         <tr>
                             <td class="text-center td-fit"><?= $no++; ?></td>
                             <td class="text-center">Potongan / Alpa</td>
-                            <td class="text-center">Rp <?= number_format($pegawai['gaji_pokok'], 0, ",", "."); ?></td>
+                            <td class="text-center">Rp <?= number_format((50000*(int)$ketidakhadiran), 0, ",", "."); ?></td>
                         </tr>
                         <?php $total -= (50000*(int)$ketidakhadiran); ?>
                         <tr>

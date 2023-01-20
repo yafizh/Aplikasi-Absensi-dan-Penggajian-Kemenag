@@ -40,6 +40,22 @@
             </div>
         </div>
     </section>
+    <?php
+    $q = "
+            SELECT 
+                COUNT(*) as kehadiran 
+            FROM 
+                presensi_pegawai 
+            WHERE 
+                MONTH(tanggal_waktu)='" . ($_POST['bulan'] ?? Date('m')) . "' 
+                AND 
+                YEAR(tanggal_waktu)='" . ($_POST['tahun'] ?? Date("Y")) . "' 
+                AND 
+                id_pegawai=" . $_POST['id_pegawai'] . "
+            ";
+    $kehadiran = $mysqli->query($q)->fetch_assoc()['kehadiran'];
+    $ketidakhadiran = workingDays($_POST['tahun'], $_POST['bulan'], [0, 6]) - $kehadiran;
+    ?>
     <main class="p-3">
         <table class="table table-bordered">
             <thead>
@@ -64,24 +80,31 @@
                 ORDER BY 
                     t.nama 
             ";
-            $tunjangan = $mysqli->query($q)->fetch_all(MYSQLI_ASSOC);
+            $tunjangan = $mysqli->query($q);
             $total = 0;
+            $no = 1;
             ?>
             <tbody>
                 <tr>
-                    <td class="text-center td-fit">1</td>
+                    <td class="text-center td-fit"><?= $no++; ?></td>
                     <td class="text-center">Gaji Pokok</td>
                     <td class="text-center">Rp <?= number_format($pegawai['gaji_pokok'], 0, ",", "."); ?></td>
                 </tr>
                 <?php $total += $pegawai['gaji_pokok']; ?>
-                <?php foreach ($tunjangan as $i => $value) : ?>
+                <?php while ($row = $tunjangan->fetch_assoc()) : ?>
                     <tr>
                         <td class="text-center td-fit"><?= $i + 2; ?></td>
-                        <td class="text-center"><?= $value['nama']; ?></td>
-                        <td class="text-center">Rp <?= number_format($value['tunjangan'], 0, ",", "."); ?></td>
+                        <td class="text-center"><?= $row['nama']; ?></td>
+                        <td class="text-center">Rp <?= number_format($row['tunjangan'], 0, ",", "."); ?></td>
                     </tr>
-                    <?php $total += $value['tunjangan']; ?>
-                <?php endforeach; ?>
+                    <?php $total += $row['tunjangan']; ?>
+                <?php endwhile; ?>
+                <tr>
+                    <td class="text-center td-fit"><?= $no++; ?></td>
+                    <td class="text-center">Potongan / Alpa</td>
+                    <td class="text-center">Rp <?= number_format((50000 * (int)$ketidakhadiran), 0, ",", "."); ?></td>
+                </tr>
+                <?php $total -= (50000 * (int)$ketidakhadiran); ?>
                 <tr>
                     <th colspan="2">Total</th>
                     <th class="text-center">Rp <?= number_format($total, 0, ",", "."); ?></th>

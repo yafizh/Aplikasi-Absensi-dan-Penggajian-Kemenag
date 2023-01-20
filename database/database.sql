@@ -9,34 +9,13 @@ CREATE TABLE `db_kemenag`.`user` (
     PRIMARY KEY (id)
 );
 
-INSERT INTO `db_kemenag`.`user` (
-    `id`, 
-    `username`, 
-    `password`, 
-    `status`
-) VALUES
-(1, 'admin', 'admin', 'ADMIN'),
-(2, '198604072011012007', '198604072011012007', 'PEGAWAI'),
-(3, '199410302018081001', '199410302018081001', 'PEGAWAI'),
-(4, '196104151986081003', '196104151986081003', 'PEGAWAI');
-
 CREATE TABLE `db_kemenag`.`jabatan` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    `nama` VARCHAR(255) UNIQUE,
+    `nama` VARCHAR(255),
     `golongan` VARCHAR(255),
     `gaji_pokok` BIGINT UNSIGNED,
     PRIMARY KEY (id)
 );
-
-INSERT INTO `db_kemenag`.`jabatan` (
-    `id`, 
-    `nama`, 
-    `golongan`, 
-    `gaji_pokok`
-) VALUES
-(1, 'Staf IT', 'III/a', 5000000),
-(2, 'Petugas Keamanan', 'III/a', 3000000),
-(3, 'Petugas Kebersihan', 'III/a', 2000000);
 
 CREATE TABLE `db_kemenag`.`tunjangan` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -45,15 +24,6 @@ CREATE TABLE `db_kemenag`.`tunjangan` (
     `jenis_pemberian` VARCHAR(255),
     PRIMARY KEY (id)
 );
-
-INSERT INTO `db_kemenag`.`tunjangan` (
-    `id`, 
-    `nama`, 
-    `tunjangan`, 
-    `jenis_pemberian`
-) VALUES
-(1, 'Uang Makan', 100000, 'Harian');
-
 
 CREATE TABLE `db_kemenag`.`pegawai` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -80,22 +50,6 @@ CREATE TABLE `db_kemenag`.`presensi_pegawai` (
     PRIMARY KEY (`id`),
     FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE
 );
-
-INSERT INTO `db_kemenag`.`pegawai` (
-    `id`, 
-    `id_jabatan`, 
-    `id_user`, 
-    `nip`, 
-    `nama`, 
-    `nomor_telepon`, 
-    `tmt`, 
-    `tanggal_lahir`, 
-    `tempat_lahir`, 
-    `gambar`
-) VALUES
-(1, 1, 2, '198604072011012007', 'Erma Yunita S.Pd', '085753445678', '2014-10-01', '1986-04-07', 'Binuang', ''),
-(2, 2, 3, '199410302018081001', 'Muhammad Pauji, S.STP', '087756908544', '2020-10-01', '1994-10-30', 'Martapura', ''),
-(3, 3, 4, '196104151986081003', 'Sarbani S.E., M.A.P', '082134567800', '2015-02-10', '1961-04-15', 'Banjarbaru', '');
 
 CREATE TABLE `db_kemenag`.`tunjangan_pegawai` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
