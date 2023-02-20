@@ -54,6 +54,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-header">PERJALANAN DINAS</li>
+                <li class="nav-item">
+                    <a href="?page=honor" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "honor") ? "active" : "")  : "" ?>">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Honor
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">PRESENSI PEGAWAI</li>
                 <li class="nav-item">
                     <a href="?page=scanner" class="nav-link <?= isset($_GET['page']) ? (($_GET['page'] === "scanner") ? "active" : "")  : "" ?>">

@@ -10,10 +10,8 @@
 
 <section class="content">
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-lg-3 col-6">
-
                 <?php $pegawai = $mysqli->query("SELECT * FROM pegawai"); ?>
                 <div class="small-box bg-info">
                     <div class="inner">
@@ -25,9 +23,7 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-3 col-6">
-
                 <?php $admin = $mysqli->query("SELECT * FROM user WHERE status='ADMIN'"); ?>
                 <div class="small-box bg-success">
                     <div class="inner">

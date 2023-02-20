@@ -45,6 +45,19 @@ if (isset($_SESSION['user'])) {
                     } else
                         include_once "halaman_tampil_data/pegawai.php";
                     break;
+                case "honor":
+                    if (isset($_GET['method'])) {
+                        if ($_GET['method'] === 'tambah')
+                            include_once "halaman_tambah_data/honor.php";
+                        elseif ($_GET['method'] === 'edit')
+                            include_once "halaman_edit_data/honor.php";
+                        elseif ($_GET['method'] === 'hapus')
+                            include_once "halaman_hapus_data/honor.php";
+                        elseif ($_GET['method'] === 'detail')
+                            include_once "halaman_detail/honor.php";
+                    } else
+                        include_once "halaman_tampil_data/honor.php";
+                    break;
                 case "tabel_presensi":
                     include_once "halaman_lainnya/tabel_presensi.php";
                     break;

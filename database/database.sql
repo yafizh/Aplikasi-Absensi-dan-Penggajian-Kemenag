@@ -55,7 +55,25 @@ CREATE TABLE `db_kemenag`.`tunjangan_pegawai` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     `id_pegawai` BIGINT UNSIGNED NOT NULL,
     `id_tunjangan` BIGINT UNSIGNED NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (`id`),
     FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE,
     FOREIGN KEY (`id_tunjangan`) REFERENCES `tunjangan` (`id`) ON DELETE CASCADE
+);
+
+CREATE TABLE `db_kemenag`.`honor` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `tujuan` VARCHAR(255),
+    `alasan` TEXT,
+    `tanggal` DATE,
+    `transportasi` VARCHAR(255),
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `db_kemenag`.`honor_pegawai` (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `id_honor` BIGINT UNSIGNED NOT NULL,
+    `id_pegawai` BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id_honor`) REFERENCES `honor` (`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id`) ON DELETE CASCADE
 );
