@@ -52,6 +52,7 @@
                         <th class="text-center">Tanggal</th>
                         <th class="text-center">Tujuan</th>
                         <th class="text-center">Transportasi</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +72,9 @@
                             <td class="text-center" style="vertical-align: middle;"><?= indonesiaDate($row['tanggal']) ?></td>
                             <td class="text-center" style="vertical-align: middle;"><?= $row['tujuan'] ?></td>
                             <td class="text-center" style="vertical-align: middle;"><?= $row['transportasi'] ?></td>
+                            <td class="text-center td-fit" style="vertical-align: middle;">
+                                <a href="halaman_cetak_laporan/detail_honor.php?id=<?= $row['id']; ?>" target="_blank" class="btn btn-primary btn-sm">Cetak</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
