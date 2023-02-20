@@ -134,6 +134,12 @@
                                 <p>Tunjangan Pegawai</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="?page=laporan&method=honor" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "honor") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Honor</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">PENGATURAN</li>
