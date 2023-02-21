@@ -140,6 +140,12 @@
                                 <p>Honor</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="?page=laporan&method=kenaikan_gaji" class="nav-link <?= isset($_GET['method']) ? (($_GET['method'] === "kenaikan_gaji") ? "active" : "")  : "" ?>">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Kenaikan Gaji</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">PENGATURAN</li>

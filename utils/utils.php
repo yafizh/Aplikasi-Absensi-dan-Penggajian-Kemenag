@@ -68,3 +68,17 @@ function offDays($year, $month, $ignore)
     }
     return $count;
 }
+
+function getYearMonthDayFromCompareDateWithToday($date)
+{
+    $date1 = new DateTime($date);
+    $date2 = new DateTime();
+
+    $interval = $date1->diff($date2);
+
+    return [
+        'year' => $interval->y,
+        'month' => $interval->m,
+        'day' => $interval->d,
+    ];
+}

@@ -96,6 +96,8 @@ if (isset($_SESSION['user'])) {
                             include_once "halaman_laporan/slip_gaji_pegawai.php";
                         elseif ($_GET['method'] === 'honor')
                             include_once "halaman_laporan/honor.php";
+                        elseif ($_GET['method'] === 'kenaikan_gaji')
+                            include_once "halaman_laporan/kenaikan_gaji.php";
                     }
                     break;
                 default:

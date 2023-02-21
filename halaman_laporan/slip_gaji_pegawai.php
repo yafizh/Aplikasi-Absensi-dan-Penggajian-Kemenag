@@ -155,6 +155,7 @@
                                 t.nama 
                         ";
                     $tunjangan = $mysqli->query($q);
+
                     $total = 0;
                     $no = 1;
                     ?>
@@ -176,9 +177,9 @@
                         <tr>
                             <td class="text-center td-fit"><?= $no++; ?></td>
                             <td class="text-center">Potongan / Alpa</td>
-                            <td class="text-center">Rp <?= number_format((50000*(int)$ketidakhadiran), 0, ",", "."); ?></td>
+                            <td class="text-center">Rp <?= number_format((50000 * (int)$ketidakhadiran), 0, ",", "."); ?></td>
                         </tr>
-                        <?php $total -= (50000*(int)$ketidakhadiran); ?>
+                        <?php $total -= (50000 * (int)$ketidakhadiran); ?>
                         <tr>
                             <th colspan="2">Total</th>
                             <th class="text-center">Rp <?= number_format($total, 0, ",", "."); ?></th>
