@@ -15,12 +15,12 @@
         <strong>
             <span style="width: 150px; display: inline-block;">Filter</span>
         </strong>
-        <?php if (isset($_POST['dari_tmt'])) : ?>
+        <?php if (isset($_POST['dari_tanggal'])) : ?>
             <br>
             <span style="width: 150px; display: inline-block;">Dari Tanggal</span>
             <span>: <?= indonesiaDate($_POST['dari_tanggal']); ?></span>
         <?php endif; ?>
-        <?php if (isset($_POST['dari_tmt'])) : ?>
+        <?php if (isset($_POST['dari_tanggal'])) : ?>
             <br>
             <span style="width: 150px; display: inline-block;">Sampai Tanggal</span>
             <span>: <?= indonesiaDate($_POST['sampai_tanggal']); ?></span>
@@ -70,7 +70,7 @@
                         1=1";
 
                 if (!empty($_POST['dari_tanggal'] ?? '') && !empty($_POST['sampai_tanggal'] ?? ''))
-                    $q .= " AND (DATE(pp.tanggal) >= '" . $_POST['dari_tanggal'] . "' AND DATE(pp.tanggal) <= '" . $_POST['sampai_tanggal'] . "')";
+                    $q .= " AND (DATE(pp.tanggal_waktu) >= '" . $_POST['dari_tanggal'] . "' AND DATE(pp.tanggal_waktu) <= '" . $_POST['sampai_tanggal'] . "')";
 
                 if (isset($_POST['status']))
                     $q .= " AND pp.status='" . $_POST['status'] . "'";

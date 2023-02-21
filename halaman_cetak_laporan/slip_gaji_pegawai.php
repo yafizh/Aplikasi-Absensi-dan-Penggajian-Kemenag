@@ -93,7 +93,7 @@
                 <?php $total += $pegawai['gaji_pokok']; ?>
                 <?php while ($row = $tunjangan->fetch_assoc()) : ?>
                     <tr>
-                        <td class="text-center td-fit"><?= $i + 2; ?></td>
+                        <td class="text-center td-fit"><?= $no++; ?></td>
                         <td class="text-center"><?= $row['nama']; ?></td>
                         <td class="text-center">Rp <?= number_format($row['tunjangan'], 0, ",", "."); ?></td>
                     </tr>

@@ -111,7 +111,7 @@
                             1=1";
 
                     if (!empty($_POST['dari_tanggal'] ?? '') && !empty($_POST['sampai_tanggal'] ?? ''))
-                        $q .= " AND (DATE(pp.tanggal) >= '" . $_POST['dari_tanggal'] . "' AND DATE(pp.tanggal) <= '" . $_POST['sampai_tanggal'] . "')";
+                        $q .= " AND (DATE(pp.tanggal_waktu) >= '" . $_POST['dari_tanggal'] . "' AND DATE(pp.tanggal_waktu) <= '" . $_POST['sampai_tanggal'] . "')";
 
                     if (isset($_POST['status']))
                         $q .= " AND pp.status='" . $_POST['status'] . "'";
