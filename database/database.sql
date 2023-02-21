@@ -1,5 +1,6 @@
 DROP DATABASE IF EXISTS `db_kemenag`;
 CREATE DATABASE `db_kemenag`;
+USE `db_kemenag`;
 
 CREATE TABLE `db_kemenag`.`user` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -66,6 +67,7 @@ CREATE TABLE `db_kemenag`.`honor` (
     `alasan` TEXT,
     `tanggal` DATE,
     `transportasi` VARCHAR(255),
+    `biaya_perjalanan` BIGINT UNSIGNED,
     PRIMARY KEY (`id`)
 );
 

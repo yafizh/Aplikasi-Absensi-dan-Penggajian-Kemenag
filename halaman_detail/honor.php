@@ -53,20 +53,24 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="tanggal">Tanggal Perjalanan</label>
+                            <label>Tanggal Perjalanan</label>
                             <input type="text" class="form-control" disabled value="<?= indonesiaDate($data['tanggal']) ?>">
                         </div>
                         <div class="form-group">
-                            <label for="tujuan">Tujuan</label>
+                            <label>Tujuan</label>
                             <input type="text" class="form-control" disabled value="<?= $data['tujuan']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="transportasi">Transportasi yang digunakan</label>
+                            <label>Transportasi yang digunakan</label>
                             <input type="text" class="form-control" disabled value="<?= $data['transportasi']; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="alasan">Alasan Kepergian</label>
+                            <label>Alasan Kepergian</label>
                             <textarea name="alasan" id="alasan" class="form-control" disabled autocomplete="off"><?= $data['alasan']; ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Biaya Perjalanan</label>
+                            <input type="text" class="form-control" disabled value="<?= number_format($data['biaya_perjalanan'], 0, ",", "."); ?>">
                         </div>
                         <a href="?page=<?= $_GET['page']; ?>" class="btn btn-secondary">Kembali</a>
                     </div>

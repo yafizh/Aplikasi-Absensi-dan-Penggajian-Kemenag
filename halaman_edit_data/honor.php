@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $tujuan = $mysqli->real_escape_string($_POST['tujuan']);
     $transportasi = $mysqli->real_escape_string($_POST['transportasi']);
     $alasan = $mysqli->real_escape_string($_POST['alasan']);
+    $biaya_perjalanan = $mysqli->real_escape_string($_POST['biaya_perjalanan']);
 
     try {
         $mysqli->begin_transaction();
@@ -20,7 +21,8 @@ if (isset($_POST['submit'])) {
                 tanggal='$tanggal',
                 transportasi='$transportasi',
                 alasan='$alasan',
-                tujuan='$tujuan' 
+                tujuan='$tujuan', 
+                biaya_perjalanan='$biaya_perjalanan' 
             WHERE 
                 id=" . $_GET['id'] . "
         ";
@@ -67,6 +69,10 @@ if (isset($_POST['submit'])) {
                             <div class="form-group">
                                 <label for="alasan">Alasan Kepergian</label>
                                 <textarea name="alasan" id="alasan" class="form-control" required autocomplete="off"><?= $data['alasan']; ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="biaya_perjalanan">Biaya Perjalanan</label>
+                                <input type="text" class="form-control" name="biaya_perjalanan" id="biaya_perjalanan" required min="0" autocomplete="off" value="<?= $data['biaya_perjalanan']; ?>">
                             </div>
                             <div>
                                 <a href="?page=<?= $_GET['page']; ?>" class="btn btn-secondary">Kembali</a>
